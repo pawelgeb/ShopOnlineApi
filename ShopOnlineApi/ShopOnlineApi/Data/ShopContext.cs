@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using ShopOnlineApi.ModelsSQL;
-using System.Diagnostics.CodeAnalysis;
 
 namespace ShopOnlineApi.Data
 {
@@ -56,7 +52,8 @@ namespace ShopOnlineApi.Data
 
                 entity.Property(e => e.HouseNumber).HasColumnName("house_number");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Street).HasColumnName("street");
 
@@ -94,7 +91,8 @@ namespace ShopOnlineApi.Data
 
                 entity.Property(e => e.EmailAdress).HasColumnName("email_adress");
 
-                entity.Property(e => e.Id).HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id")
+                .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.PhoneNumber).HasColumnName("phone_number");
 

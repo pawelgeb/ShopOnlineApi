@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using ShopOnlineApi.Data;
-using ShopOnlineApi.ModelsSQL;
 
 var builder = WebApplication.CreateBuilder(args);
 string dataBaseChose = "SQL";
@@ -15,9 +14,10 @@ builder.Services.AddSwaggerGen();
 if (dataBaseChose != "SQL")
 {
     builder.Services.AddDbContext<ShopContext>(opt => opt.UseInMemoryDatabase("TodoList"));
-} else
+}
+else
 {
-  builder.Services.AddDbContext<ShopContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("ShopContext")));
+    builder.Services.AddDbContext<ShopContext>(op => op.UseNpgsql(builder.Configuration.GetConnectionString("ShopContext")));
 }
 var app = builder.Build();
 // Configure the HTTP request pipeline.
