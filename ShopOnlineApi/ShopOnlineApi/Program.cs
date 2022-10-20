@@ -4,6 +4,7 @@ using ShopOnlineApi.Data;
 var builder = WebApplication.CreateBuilder(args);
 string dataBaseChose = "SQL";
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();

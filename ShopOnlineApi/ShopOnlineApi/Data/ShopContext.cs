@@ -64,11 +64,12 @@ namespace ShopOnlineApi.Data
             });
 
             modelBuilder.Entity<Category>(entity =>
+
             {
                 entity.ToTable("category", "newshop");
 
                 entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
+                    .ValueGeneratedOnAdd()
                     .HasColumnName("id");
 
                 entity.Property(e => e.AddData).HasColumnName("add_data");
